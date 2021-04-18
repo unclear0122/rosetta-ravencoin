@@ -61,7 +61,7 @@ at port `8080`.
 
 #### Mainnet:Online
 ```text
-docker run -d --rm --ulimit "nofile=100000:100000" -v "$(pwd)/ravencoin-data:/data" -e "MODE=ONLINE" -e "NETWORK=MAINNET" -e "PORT=8080" -p 8080:8080 -p 8333:8333 rosetta-ravencoin:latest
+docker run -d --rm --ulimit "nofile=100000:100000" -v "$(pwd)/ravencoin-data:/data" -e "MODE=ONLINE" -e "NETWORK=MAINNET" -e "PORT=8080" -p 8080:8080 -p 8766:8766 rosetta-ravencoin:latest
 ```
 _If you cloned the repository, you can run `make run-mainnet-online`._
 
