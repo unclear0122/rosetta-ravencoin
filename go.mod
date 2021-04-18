@@ -1,4 +1,4 @@
-module github.com/coinbase/rosetta-bitcoin
+module github.com/RavenProject/rosetta-ravencoin
 
 go 1.13
 
