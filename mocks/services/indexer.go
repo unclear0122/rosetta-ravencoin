@@ -5,7 +5,7 @@ package services
 import (
 	context "context"
 
-	ravencoin "github.com/coinbase/rosetta-ravencoin/ravencoin"
+	ravencoin "github.com/RavenProject/rosetta-ravencoin/ravencoin"
 
 	mock "github.com/stretchr/testify/mock"
 

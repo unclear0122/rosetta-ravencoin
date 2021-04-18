@@ -23,9 +23,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/coinbase/rosetta-ravencoin/ravencoin"
-	"github.com/coinbase/rosetta-ravencoin/configuration"
-	mocks "github.com/coinbase/rosetta-ravencoin/mocks/indexer"
+	"github.com/RavenProject/rosetta-ravencoin/ravencoin"
+	"github.com/RavenProject/rosetta-ravencoin/configuration"
+	mocks "github.com/RavenProject/rosetta-ravencoin/mocks/indexer"
 
 	"github.com/coinbase/rosetta-sdk-go/types"
 	"github.com/coinbase/rosetta-sdk-go/utils"

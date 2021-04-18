@@ -20,7 +20,7 @@ deps:
 	go get ./...
 
 build:
-	docker build -t rosetta-ravencoin:latest https://github.com/coinbase/rosetta-ravencoin.git
+	docker build -t rosetta-ravencoin:latest https://github.com/RavenProject/rosetta-ravencoin.git
 
 build-local:
 	docker build -t rosetta-ravencoin:latest .

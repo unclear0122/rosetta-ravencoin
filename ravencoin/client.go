@@ -56,28 +56,28 @@ const (
 type requestMethod string
 
 const (
-	// https://ravencoin.org/en/developer-reference#getblock
+	// https://bitcoin.org/en/developer-reference#getblock
 	requestMethodGetBlock requestMethod = "getblock"
 
-	// https://ravencoin.org/en/developer-reference#getblockhash
+	// https://bitcoin.org/en/developer-reference#getblockhash
 	requestMethodGetBlockHash requestMethod = "getblockhash"
 
-	// https://ravencoin.org/en/developer-reference#getblockchaininfo
+	// https://bitcoin.org/en/developer-reference#getblockchaininfo
 	requestMethodGetBlockchainInfo requestMethod = "getblockchaininfo"
 
-	// https://developer.ravencoin.org/reference/rpc/getpeerinfo.html
+	// https://developer.bitcoin.org/reference/rpc/getpeerinfo.html
 	requestMethodGetPeerInfo requestMethod = "getpeerinfo"
 
-	// https://developer.ravencoin.org/reference/rpc/pruneblockchain.html
+	// https://developer.bitcoin.org/reference/rpc/pruneblockchain.html
 	requestMethodPruneBlockchain requestMethod = "pruneblockchain"
 
-	// https://developer.ravencoin.org/reference/rpc/sendrawtransaction.html
+	// https://developer.bitcoin.org/reference/rpc/sendrawtransaction.html
 	requestMethodSendRawTransaction requestMethod = "sendrawtransaction"
 
-	// https://developer.ravencoin.org/reference/rpc/estimatesmartfee.html
+	// https://developer.bitcoin.org/reference/rpc/estimatesmartfee.html
 	requestMethodEstimateSmartFee requestMethod = "estimatesmartfee"
 
-	// https://developer.ravencoin.org/reference/rpc/getrawmempool.html
+	// https://developer.bitcoin.org/reference/rpc/getrawmempool.html
 	requestMethodRawMempool requestMethod = "getrawmempool"
 
 	// blockNotFoundErrCode is the RPC error code when a block cannot be found
@@ -307,7 +307,7 @@ func (b *Client) PruneBlockchain(
 ) (int64, error) {
 	// Parameters:
 	//   1. Height
-	// https://developer.ravencoin.org/reference/rpc/pruneblockchain.html#argument-1-height
+	// https://developer.bitcoin.org/reference/rpc/pruneblockchain.html#argument-1-height
 	params := []interface{}{height}
 
 	response := &pruneBlockchainResponse{}
@@ -361,7 +361,7 @@ func (b *Client) getBlock(
 	// Parameters:
 	//   1. Block hash (string, required)
 	//   2. Verbosity (integer, optional, default=1)
-	// https://ravencoin.org/en/developer-reference#getblock
+	// https://bitcoin.org/en/developer-reference#getblock
 	params := []interface{}{hash, blockVerbosity}
 
 	response := &blockResponse{}
@@ -447,14 +447,14 @@ func (b *Client) parseBlockData(block *Block) (*types.Block, error) {
 
 // getHashFromIndex performs the `getblockhash` JSON-RPC request for the specified
 // block index, and returns the hash.
-// https://ravencoin.org/en/developer-reference#getblockhash
+// https://bitcoin.org/en/developer-reference#getblockhash
 func (b *Client) getHashFromIndex(
 	ctx context.Context,
 	index int64,
 ) (string, error) {
 	// Parameters:
 	//   1. Block height (numeric, required)
-	// https://ravencoin.org/en/developer-reference#getblockhash
+	// https://bitcoin.org/en/developer-reference#getblockhash
 	params := []interface{}{index}
 
 	response := &blockHashResponse{}

@@ -39,7 +39,7 @@ const (
 	Decimals = 8
 
 	// SatoshisInRavencoin is the number of
-	// Satoshis in 1 BTC (10^8).
+	// Satoshis in 1 RVN (10^8).
 	SatoshisInRavencoin = 100000000
 
 	// InputOpType is used to describe
@@ -76,7 +76,7 @@ const (
 )
 
 // Fee estimate constants
-// Source: https://ravencoinops.org/en/tools/calc-size/
+// Source: https://bitcoinops.org/en/tools/calc-size/
 const (
 	MinFeeRate            = float64(0.00001) // nolint:gomnd
 	TransactionOverhead   = 12               // 4 version, 2 segwit flag, 1 vin, 1 vout, 4 lock time
@@ -88,7 +88,7 @@ const (
 var (
 	// MainnetGenesisBlockIdentifier is the genesis block for mainnet.
 	MainnetGenesisBlockIdentifier = &types.BlockIdentifier{
-		Hash: "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f",
+		Hash: "0b2c703dc93bb63a36c4e33b85be4855ddbca2ac951a7a0a29b8de0408200a3c",
 	}
 
 	// MainnetParams are the params for mainnet.
@@ -96,7 +96,7 @@ var (
 
 	// MainnetCurrency is the *types.Currency for mainnet.
 	MainnetCurrency = &types.Currency{
-		Symbol:   "BTC",
+		Symbol:   "RVN",
 		Decimals: Decimals,
 	}
 
@@ -110,7 +110,7 @@ var (
 
 	// TestnetCurrency is the *types.Currency for testnet.
 	TestnetCurrency = &types.Currency{
-		Symbol:   "tBTC",
+		Symbol:   "tRVN",
 		Decimals: Decimals,
 	}
 

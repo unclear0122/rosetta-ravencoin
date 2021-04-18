@@ -7,11 +7,11 @@
    Rosetta Ravencoin
 </h3>
 <p align="center">
-  <a href="https://circleci.com/gh/coinbase/rosetta-ravencoin/tree/master"><img src="https://circleci.com/gh/coinbase/rosetta-ravencoin/tree/master.svg?style=shield" /></a>
-  <a href="https://coveralls.io/github/coinbase/rosetta-ravencoin"><img src="https://coveralls.io/repos/github/coinbase/rosetta-ravencoin/badge.svg" /></a>
-  <a href="https://goreportcard.com/report/github.com/coinbase/rosetta-ravencoin"><img src="https://goreportcard.com/badge/github.com/coinbase/rosetta-ravencoin" /></a>
-  <a href="https://github.com/coinbase/rosetta-ravencoin/blob/master/LICENSE.txt"><img src="https://img.shields.io/github/license/coinbase/rosetta-ravencoin.svg" /></a>
-  <a href="https://pkg.go.dev/github.com/coinbase/rosetta-ravencoin?tab=overview"><img src="https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=shield" /></a>
+  <a href="https://circleci.com/gh/RavenProject/rosetta-ravencoin/tree/master"><img src="https://circleci.com/gh/RavenProject/rosetta-ravencoin/tree/master.svg?style=shield" /></a>
+  <a href="https://coveralls.io/github/RavenProject/rosetta-ravencoin"><img src="https://coveralls.io/repos/github/RavenProject/rosetta-ravencoin/badge.svg" /></a>
+  <a href="https://goreportcard.com/report/github.com/RavenProject/rosetta-ravencoin"><img src="https://goreportcard.com/badge/github.com/RavenProject/rosetta-ravencoin" /></a>
+  <a href="https://github.com/RavenProject/rosetta-ravencoin/blob/master/LICENSE.txt"><img src="https://img.shields.io/github/license/RavenProject/rosetta-ravencoin.svg" /></a>
+  <a href="https://pkg.go.dev/github.com/RavenProject/rosetta-ravencoin?tab=overview"><img src="https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=shield" /></a>
 </p>
 
 <p align="center"><b>
@@ -43,7 +43,7 @@ Running the following commands will create a Docker image called `rosetta-ravenc
 #### From GitHub
 To download the pre-built Docker image from the latest release, run:
 ```text
-curl -sSfL https://raw.githubusercontent.com/coinbase/rosetta-ravencoin/master/install.sh | sh -s
+curl -sSfL https://raw.githubusercontent.com/RavenProject/rosetta-ravencoin/master/install.sh | sh -s
 ```
 _Do not try to install rosetta-ravencoin using GitHub Packages!_
 
@@ -84,7 +84,7 @@ docker run -d --rm -e "MODE=OFFLINE" -e "NETWORK=TESTNET" -e "PORT=8081" -p 8081
 _If you cloned the repository, you can run `make run-testnet-offline`._
 
 ## System Requirements
-`rosetta-ravencoin` has been tested on an [AWS c5.2xlarge instance](https://aws.amazon.com/ec2/instance-types/c5).
+`rosetta-ravencoin` has (NOT YET) been tested on an [AWS c5.2xlarge instance](https://aws.amazon.com/ec2/instance-types/c5).
 This instance type has 8 vCPU and 16 GB of RAM.
 
 ### Network Settings
@@ -129,7 +129,7 @@ you can find a high-level overview of how everything fits together:
                                +-------------------+ pruner <----------+                |         |
                                |                 | +--------+          |                |         |
                          +-----v----+            |                     |                |         |
-                         | ravend |            |              +------+--------+       |         |
+                         |  ravend  |            |              +------+--------+       |         |
                          +-----+----+            |     +--------> block_storage <----+  |         |
                                |                 |     |        +---------------+    |  |         |
                                |                 | +---+----+                        |  |         |
@@ -170,7 +170,7 @@ multiple inputs from disk while it waits for inputs that appeared
 in recently processed blocks to save to disk.
 ```text
                                                    +----------+
-                                                   | ravend |
+                                                   |  ravend  |
                                                    +-----+----+
                                                          |
                                                          |
@@ -231,4 +231,4 @@ _Please reach out on our [community](https://community.rosetta-api.org) if you w
 ## License
 This project is available open source under the terms of the [Apache 2.0 License](https://opensource.org/licenses/Apache-2.0).
 
-© 2020 Coinbase
+© 2021 RavenProject

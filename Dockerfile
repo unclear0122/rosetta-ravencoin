@@ -23,7 +23,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y make gcc g++ autoconf autotools-dev bsdmainutils build-essential git libboost-all-dev \
   libcurl4-openssl-dev libdb++-dev libevent-dev libssl-dev libtool pkg-config python python-pip libzmq3-dev wget
 
-# VERSION: Ravencoin Core 0.20.1
+# VERSION: Ravencoin Core 4.3.2.1
 RUN git clone https://github.com/RavenProject/ravencoin \
   && cd ravencoin \
   && git checkout 25a2dbf4166740270f3ade327aa09ea35ba4e2b2
