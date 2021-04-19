@@ -18,7 +18,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/RavenProject/rosetta-ravencoin/ravencoin/chaincfg"
+
 	"github.com/coinbase/rosetta-sdk-go/types"
 )
 
@@ -106,7 +107,7 @@ var (
 	}
 
 	// TestnetParams are the params for testnet.
-	TestnetParams = &chaincfg.TestNet3Params
+	TestnetParams = &chaincfg.TestNet7Params
 
 	// TestnetCurrency is the *types.Currency for testnet.
 	TestnetCurrency = &types.Currency{

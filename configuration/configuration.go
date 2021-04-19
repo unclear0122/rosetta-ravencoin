@@ -23,8 +23,8 @@ import (
 	"time"
 
 	"github.com/RavenProject/rosetta-ravencoin/ravencoin"
+	"github.com/RavenProject/rosetta-ravencoin/ravencoin/chaincfg"
 
-	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/coinbase/rosetta-sdk-go/storage/encoder"
 	"github.com/coinbase/rosetta-sdk-go/types"
 )
