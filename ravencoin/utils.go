@@ -19,8 +19,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/RavenProject/rosetta-ravencoin/ravencoin/chaincfg"
-
+	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/txscript"
 	"github.com/btcsuite/btcutil"

@@ -279,7 +279,7 @@ var genesisBlock = wire.MsgBlock{
 
 // testNet7GenesisHash is the hash of the first block in the block chain for the
 // test network (version 3).
-var testNet7GenesisHash = newHashFromStr("0x000000ecfc5e6324a079542221d00e10362bdc894d56500c414060eea8a3ad5a")
+var testNet7GenesisHash = newHashFromStr("000000ecfc5e6324a079542221d00e10362bdc894d56500c414060eea8a3ad5a")
 
 // testNet7GenesisMerkleRoot is the hash of the first transaction in the genesis
 // block for the test network (version 3).  It is the same as the merkle root

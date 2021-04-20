@@ -73,7 +73,7 @@ func (s *ConstructionAPIService) ConstructionDerive(
 ) (*types.ConstructionDeriveResponse, *types.Error) {
 	addr, err := btcutil.NewAddressWitnessPubKeyHash(
 		btcutil.Hash160(request.PublicKey.Bytes),
-		s.config.Params,
+		nil,//s.config.Params,
 	)
 	if err != nil {
 		return nil, wrapErr(ErrUnableToDerive, err)
@@ -95,7 +95,7 @@ func (s *ConstructionAPIService) estimateSize(operations []*types.Operation) flo
 			size += ravencoin.InputSize
 		case ravencoin.OutputOpType:
 			size += ravencoin.OutputOverhead
-			addr, err := btcutil.DecodeAddress(operation.Account.Address, s.config.Params)
+			addr, err := btcutil.DecodeAddress(operation.Account.Address, nil)//s.config.Params)
 			if err != nil {
 				size += ravencoin.P2PKHScriptPubkeySize
 				continue
@@ -283,7 +283,7 @@ func (s *ConstructionAPIService) ConstructionPayloads(
 	}
 
 	for i, output := range matches[1].Operations {
-		addr, err := btcutil.DecodeAddress(output.Account.Address, s.config.Params)
+		addr, err := btcutil.DecodeAddress(output.Account.Address, nil)//s.config.Params)
 		if err != nil {
 			return nil, wrapErr(ErrUnableToDecodeAddress, fmt.Errorf(
 				"%w unable to decode address %s",
@@ -324,7 +324,7 @@ func (s *ConstructionAPIService) ConstructionPayloads(
 			return nil, wrapErr(ErrUnableToDecodeScriptPubKey, err)
 		}
 
-		class, _, err := ravencoin.ParseSingleAddress(s.config.Params, script)
+		class, _, err := ravencoin.ParseSingleAddress(nil /*s.config.Params*/, script)
 		if err != nil {
 			return nil, wrapErr(
 				ErrUnableToDecodeAddress,
@@ -439,7 +439,7 @@ func (s *ConstructionAPIService) ConstructionCombine(
 			return nil, wrapErr(ErrUnableToDecodeScriptPubKey, err)
 		}
 
-		class, _, err := ravencoin.ParseSingleAddress(s.config.Params, decodedScript)
+		class, _, err := ravencoin.ParseSingleAddress(nil /*s.config.Params*/, decodedScript)
 		if err != nil {
 			return nil, wrapErr(
 				ErrUnableToDecodeAddress,
@@ -592,7 +592,7 @@ func (s *ConstructionAPIService) parseUnsignedTransaction(
 
 	for i, output := range tx.TxOut {
 		networkIndex := int64(i)
-		_, addr, err := ravencoin.ParseSingleAddress(s.config.Params, output.PkScript)
+		_, addr, err := ravencoin.ParseSingleAddress(nil /*s.config.Params*/, output.PkScript)
 		if err != nil {
 			return nil, wrapErr(
 				ErrUnableToDecodeAddress,
@@ -668,7 +668,7 @@ func (s *ConstructionAPIService) parseSignedTransaction(
 			)
 		}
 
-		_, addr, err := ravencoin.ParseSingleAddress(s.config.Params, pkScript.Script())
+		_, addr, err := ravencoin.ParseSingleAddress(nil /*s.config.Params*/, pkScript.Script())
 		if err != nil {
 			return nil, wrapErr(
 				ErrUnableToDecodeAddress,
@@ -708,7 +708,7 @@ func (s *ConstructionAPIService) parseSignedTransaction(
 
 	for i, output := range tx.TxOut {
 		networkIndex := int64(i)
-		_, addr, err := ravencoin.ParseSingleAddress(s.config.Params, output.PkScript)
+		_, addr, err := ravencoin.ParseSingleAddress(nil /*s.config.Params*/, output.PkScript)
 		if err != nil {
 			return nil, wrapErr(
 				ErrUnableToDecodeAddress,
