@@ -10,7 +10,15 @@
   "tip_delay": 1800,
   "compression_disabled": true,
   "memory_limit_disabled": true,
+  "construction": {
+    "constructor_dsl_file": "ravencoin-mainnet.ros",
+    "end_conditions": {
+      "create_account": 10,
+      "transfer": 10
+    }
+  },
   "data": {
+    "pruning_disabled": false,
     "initial_balance_fetch_disabled": true,
     "end_conditions": {
       "reconciliation_coverage": {
