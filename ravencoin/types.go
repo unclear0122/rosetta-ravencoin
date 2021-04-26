@@ -33,7 +33,7 @@ const (
 
 	// TestnetNetwork is the value of the network
 	// in TestnetNetworkIdentifier.
-	TestnetNetwork string = "Testnet3"
+	TestnetNetwork string = "Testnet7"
 
 	// Decimals is the decimals value
 	// used in Currency.
