@@ -78,7 +78,7 @@ func TestConstructionService(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Equal(t, &types.ConstructionDeriveResponse{
 		AccountIdentifier: &types.AccountIdentifier{
-			Address: "tb1qcqzmqzkswhfshzd8kedhmtvgnxax48z4fklhvm",
+			Address: "my2Gr56HqNx2Z7QGtpw474g28ZS8rxB7Hj",
 		},
 	}, deriveResponse)
 
@@ -152,7 +152,7 @@ func TestConstructionService(t *testing.T) {
 				},
 			},
 		},
-		EstimatedSize: 142,
+		EstimatedSize: 224,
 		FeeMultiplier: &feeMultiplier,
 	}
 	assert.Equal(t, &types.ConstructionPreprocessResponse{
