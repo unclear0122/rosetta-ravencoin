@@ -567,8 +567,12 @@ func (s *ConstructionAPIService) ConstructionPayloads(
 			)
 		}
 
-		//hashReplayToByte, err := hex.DecodeString(metadata.ReplayBlockHash)
 		pkScript, err := txscript.PayToAddrScript(addr)
+    
+    //Original: PayToReplayOut
+		//hashReplayToByte, err := hex.DecodeString(metadata.ReplayBlockHash)
+		//pkScript, err := txscript.PayToAddrReplayOutScript(addr, hashReplayToByte, metadata.ReplayBlockHeight)
+
 		if err != nil {
 			return nil, wrapErr(
 				ErrUnableToDecodeAddress,
