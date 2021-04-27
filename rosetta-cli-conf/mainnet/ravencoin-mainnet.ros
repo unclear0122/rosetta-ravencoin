@@ -39,6 +39,12 @@ create_account(1){
       "account_identifier": {{account.account_identifier}},
       "keypair": {{key}}
     });
+
+    // print key pair
+    print_message({
+      "private_key": {{key.private_key}},
+      "address": {{account.account_identifier.address}}
+    });
   }
 }
 
@@ -170,8 +176,8 @@ return_funds(10){
 
     // We look for a sender that is able to pay the 
     // max_fee_amount + min_utxo size (reserved_amount is max_fee_amount + min_utxo size).
-    max_fee_amount = "1200";
-    reserved_amount = "1800";
+    max_fee_amount = "500";
+    reserved_amount = "1000";
     sender = find_balance({
       "minimum_balance":{
         "value": {{reserved_amount}},
@@ -221,7 +227,7 @@ return_funds(10){
     // We calculate the recipient_amount using the new suggested_fee
     // and assert that it is above the minimum UTXO size.
     recipient_amount = {{sender.balance.value}} - {{suggested_fee.value}};
-    dust_amount = "600";
+    dust_amount = "500";
     recipient_minus_dust = {{recipient_amount}} - {{dust_amount}};
     assert({{recipient_minus_dust}});
 
