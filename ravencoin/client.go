@@ -270,8 +270,8 @@ func (b *Client) SendRawTransaction(
 ) (string, error) {
 	// Parameters:
 	//   1. hextring
-	//   2. maxfeerate (0 means accept any fee)
-	params := []interface{}{serializedTx, 0}
+	//   2. allowhighfees
+	params := []interface{}{serializedTx, false}
 
 	response := &sendRawTransactionResponse{}
 	if err := b.post(ctx, requestMethodSendRawTransaction, params, response); err != nil {
