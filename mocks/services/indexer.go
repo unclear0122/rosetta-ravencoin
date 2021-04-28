@@ -6,6 +6,7 @@ import (
 	context "context"
 
 	ravencoin "github.com/RavenProject/rosetta-ravencoin/ravencoin"
+
 	mock "github.com/stretchr/testify/mock"
 
 	types "github.com/coinbase/rosetta-sdk-go/types"
