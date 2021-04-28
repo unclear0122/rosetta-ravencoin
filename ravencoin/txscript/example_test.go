@@ -61,7 +61,7 @@ func ExamplePayToAddrScript_PayToHash() {
 	// which is useful to ensure the accuracy of the address and determine
 	// the address type.  It is also required for the upcoming call to
 	// PayToAddrScript.
-	addressStr := "zsfULrmbX7xbhqhAFRffVqCw9RyGv2hqNNG"
+	addressStr := "RACQw3N1wsHE3bEziCr9RZhEBJSDVdbAxb"
 	address, err := ravenutil.DecodeAddress(addressStr, &chaincfg.MainNetParams)
 
 	if err != nil {
@@ -85,8 +85,8 @@ func ExamplePayToAddrScript_PayToHash() {
 	fmt.Println("Script Disassembly:", disasm)
 
 	// Output:
-	// Script Hex: a9140ae425efe434874e2a090d44ae853caa73c703de87
-	// Script Disassembly: OP_HASH160 0ae425efe434874e2a090d44ae853caa73c703de OP_EQUAL
+	// Script Hex: 76a9140a10c69ec1243abcccfc6bafae1860dbfe2c80d788ac
+	// Script Disassembly: OP_DUP OP_HASH160 0a10c69ec1243abcccfc6bafae1860dbfe2c80d7 OP_EQUALVERIFY OP_CHECKSIG
 }
 
 // This example demonstrates creating a p2pk script with replay protection.
@@ -97,7 +97,7 @@ func ExamplePayToAddrReplayOutScript_PayToPublicKey() {
 	// which is useful to ensure the accuracy of the address and determine
 	// the address type.  It is also required for the upcoming call to
 	// PayToAddrScript.
-	addressStr := "znbfGJmzkL8JxBuskpzAcbv8frMjvWK8zL5"
+	addressStr := "RACQw3N1wsHE3bEziCr9RZhEBJSDVdbAxb"
 	blockHash, errDecode := hex.DecodeString("47f1273bab0e66e76a5c2dd8fed808a23b2c08a22fcc46c00c78000400000000")
 	blockHeight := int64(811742)
 	address, err := ravenutil.DecodeAddress(addressStr, &chaincfg.MainNetParams)
@@ -128,8 +128,8 @@ func ExamplePayToAddrReplayOutScript_PayToPublicKey() {
 	fmt.Println("Script Disassembly:", disasm)
 
 	// Output:
-	// Script Hex: 76a91473fff1a04bd772b89ed146d8dce862e8580579dc88ac20000000000400780cc046cc2fa2082c3ba208d8fed82d5c6ae7660eab3b27f14703de620cb4
-	// Script Disassembly: OP_DUP OP_HASH160 73fff1a04bd772b89ed146d8dce862e8580579dc OP_EQUALVERIFY OP_CHECKSIG 000000000400780cc046cc2fa2082c3ba208d8fed82d5c6ae7660eab3b27f147 de620c OP_CHECKBLOCKATHEIGHT
+	// Script Hex: 76a9140a10c69ec1243abcccfc6bafae1860dbfe2c80d788ac20000000000400780cc046cc2fa2082c3ba208d8fed82d5c6ae7660eab3b27f14703de620cb4
+	// Script Disassembly: OP_DUP OP_HASH160 0a10c69ec1243abcccfc6bafae1860dbfe2c80d7 OP_EQUALVERIFY OP_CHECKSIG 000000000400780cc046cc2fa2082c3ba208d8fed82d5c6ae7660eab3b27f147 de620c OP_CHECKBLOCKATHEIGHT
 }
 
 // This example demonstrates creating a p2h script with replay protection.
@@ -140,7 +140,7 @@ func ExamplePayToAddrReplayOutScript_PayToHash() {
 	// which is useful to ensure the accuracy of the address and determine
 	// the address type.  It is also required for the upcoming call to
 	// PayToAddrScript.
-	addressStr := "zsyF68hcYYNLPj5i4PfQJ1kUY6nsFnZkc82"
+	addressStr := "RACQw3N1wsHE3bEziCr9RZhEBJSDVdbAxb"
 	blockHash, errDecode := hex.DecodeString("00000001cf4e27ce1dd8028408ed0a48edd445ba388170c9468ba0d42fff3052")
 	blockHeight := int64(142091)
 	address, err := ravenutil.DecodeAddress(addressStr, &chaincfg.MainNetParams)
@@ -171,8 +171,8 @@ func ExamplePayToAddrReplayOutScript_PayToHash() {
 	fmt.Println("Script Disassembly:", disasm)
 
 	// Output:
-	// Script Hex: a914cdd4b6749cf4b394c1e48c3ede7fe483512af9db87205230ff2fd4a08b46c9708138ba45d4ed480aed088402d81dce274ecf01000000030b2b02b4
-	// Script Disassembly: OP_HASH160 cdd4b6749cf4b394c1e48c3ede7fe483512af9db OP_EQUAL 5230ff2fd4a08b46c9708138ba45d4ed480aed088402d81dce274ecf01000000 0b2b02 OP_CHECKBLOCKATHEIGHT
+	// Script Hex: 76a9140a10c69ec1243abcccfc6bafae1860dbfe2c80d788ac205230ff2fd4a08b46c9708138ba45d4ed480aed088402d81dce274ecf01000000030b2b02b4
+	// Script Disassembly: OP_DUP OP_HASH160 0a10c69ec1243abcccfc6bafae1860dbfe2c80d7 OP_EQUALVERIFY OP_CHECKSIG 5230ff2fd4a08b46c9708138ba45d4ed480aed088402d81dce274ecf01000000 0b2b02 OP_CHECKBLOCKATHEIGHT
 }
 
 // This example demonstrates extracting information from a standard p2pk script
@@ -198,7 +198,7 @@ func ExampleExtractPkScriptAddrs() {
 
 	// Output:
 	// Script Class: pubkeyhash
-	// Addresses: [znYyGhbvKwRdqVBZPN3KUkQLPE3QYTPxN73]
+	// Addresses: [RHAYnhAztfvnx5f3yu56wce3poxTnwPJBQ]
 	// Required Signatures: 1
 }
 
@@ -226,7 +226,7 @@ func ExampleExtractPkScriptReplayOutAddrs() {
 
 	// Output:
 	// Script Class: pubkeyhashreplayout
-	// Addresses: [znbfGJmzkL8JxBuskpzAcbv8frMjvWK8zL5]
+	// Addresses: [RKrYPsFRHNbueoyRSqvEo8SLT8HqkfrQx7]
 	// Required Signatures: 1
 }
 
@@ -254,7 +254,7 @@ func ExampleExtractP2sAddrs() {
 
 	// Output:
 	// Script Class: scripthash
-	// Addresses: [zsfULrmbX7xbhqhAFRffVqCw9RyGv2hqNNG]
+	// Addresses: [r7EBCBTJs3bbNq6AF5jjnZaMsTT4CD9g1h]
 	// Required Signatures: 1
 }
 
@@ -282,7 +282,7 @@ func ExampleExtractP2sReplayOutAddrs() {
 
 	// Output:
 	// Script Class: scripthashreplayout
-	// Addresses: [zsyF68hcYYNLPj5i4PfQJ1kUY6nsFnZkc82]
+	// Addresses: [rQzvU7ULHTLHGDdyD5UXy77kYH3PtTaFdh]
 	// Required Signatures: 1
 }
 
