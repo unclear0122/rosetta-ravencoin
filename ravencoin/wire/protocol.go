@@ -142,12 +142,12 @@ func (f ServiceFlag) String() string {
 // BitcoinNet represents which bitcoin network a message belongs to.
 type BitcoinNet uint32
 
-// Constants used to indicate the message Horizen network.  They can also be
+// Constants used to indicate the message Raven network.  They can also be
 // used to seek to the next message when a stream's state is unknown, but
 // this package does not provide that functionality since it's generally a
 // better idea to simply disconnect clients that are misbehaving over TCP.
 const (
-	// MainNet represents the main Horizen network.
+	// MainNet represents the main Raven network.
 	MainNet BitcoinNet = 0x63617368 // CHECK Ravencoin
 
 	// TestNet represents the testnet network.

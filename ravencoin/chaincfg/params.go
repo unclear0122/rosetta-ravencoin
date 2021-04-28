@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/btcsuite/btcd/chaincfg/chainhash" //this import is safe, just generic hash utils.
-	"github.com/btcsuite/btcd/wire"
+	"github.com/RavenProject/rosetta-ravencoin/ravencoin/chaincfg/chainhash" //this import is safe, just generic hash utils.
+	"github.com/RavenProject/rosetta-ravencoin/ravencoin/wire"
 )
 
 // These variables are the chain proof-of-work limit parameters for each default
