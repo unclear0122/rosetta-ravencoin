@@ -753,7 +753,7 @@ func (b *Client) parseInputTransactionOperation(
 }
 
 // parseAmount returns the atomic value of the specified amount.
-// https://godoc.org/github.com/btcsuite/ravenutil#NewAmount
+// https://godoc.org/github.com/btcsuite/btcutil#NewAmount
 func (b *Client) parseAmount(amount float64) (uint64, error) {
 	atomicAmount, err := ravenutil.NewAmount(amount)
 	if err != nil {

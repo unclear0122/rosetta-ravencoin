@@ -389,7 +389,7 @@ func ExampleSignTxOutput() {
 }
 
 // This example demonstrates manually creating and signing a redeem transaction.
-func ExampleZENSignTxOutput() {
+func ExampleRavenSignTxOutput() {
 	blockHash, err := hex.DecodeString("0da5ee723b7923feb580518541c6f098206330dbc711a6678922c11f2ccf1abb")
 	if err != nil {
 		fmt.Println(err)

@@ -18,9 +18,9 @@ func ExampleAmount() {
 	a = ravenutil.Amount(1e5)
 	fmt.Println("100,000 Satoshis:", a)
 	// Output:
-	// Zero Satoshi: 0 BTC
-	// 100,000,000 Satoshis: 1 BTC
-	// 100,000 Satoshis: 0.001 BTC
+	// Zero Satoshi: 0 RVN
+	// 100,000,000 Satoshis: 1 RVN
+	// 100,000 Satoshis: 0.001 RVN
 }
 
 func ExampleNewAmount() {
@@ -52,25 +52,25 @@ func ExampleNewAmount() {
 	}
 	fmt.Println(amountNaN) //Output 4
 
-	// Output: 1 BTC
-	// 0.01234567 BTC
-	// 0 BTC
+	// Output: 1 RVN
+	// 0.01234567 RVN
+	// 0 RVN
 	// invalid bitcoin amount
 }
 
 func ExampleAmount_unitConversions() {
 	amount := ravenutil.Amount(44433322211100)
 
-	fmt.Println("Satoshi to kBTC:", amount.Format(ravenutil.AmountKiloBTC))
-	fmt.Println("Satoshi to BTC:", amount)
-	fmt.Println("Satoshi to MilliBTC:", amount.Format(ravenutil.AmountMilliBTC))
-	fmt.Println("Satoshi to MicroBTC:", amount.Format(ravenutil.AmountMicroBTC))
+	fmt.Println("Satoshi to kRVN:", amount.Format(ravenutil.AmountKiloBTC))
+	fmt.Println("Satoshi to RVN:", amount)
+	fmt.Println("Satoshi to MilliRVN:", amount.Format(ravenutil.AmountMilliBTC))
+	fmt.Println("Satoshi to MicroRVN:", amount.Format(ravenutil.AmountMicroBTC))
 	fmt.Println("Satoshi to Satoshi:", amount.Format(ravenutil.AmountSatoshi))
 
 	// Output:
-	// Satoshi to kBTC: 444.333222111 kBTC
-	// Satoshi to BTC: 444333.222111 BTC
-	// Satoshi to MilliBTC: 444333222.111 mBTC
-	// Satoshi to MicroBTC: 444333222111 μBTC
+	// Satoshi to kRVN: 444.333222111 kRVN
+	// Satoshi to RVN: 444333.222111 RVN
+	// Satoshi to MilliRVN: 444333222.111 mRVN
+	// Satoshi to MicroRVN: 444333222111 μRVN
 	// Satoshi to Satoshi: 44433322211100 Satoshi
 }
