@@ -36,27 +36,6 @@ func TestFilterClearLatest(t *testing.T) {
 	}
 }
 
-// TestFilterClearCrossProtocol tests the MsgFilterClear API when encoding with
-// the latest protocol version and decoding with BIP0031Version.
-func TestFilterClearCrossProtocol(t *testing.T) {
-	msg := NewMsgFilterClear()
-
-	// Encode with latest protocol version.
-	var buf bytes.Buffer
-	err := msg.BtcEncode(&buf, ProtocolVersion, LatestEncoding)
-	if err != nil {
-		t.Errorf("encode of MsgFilterClear failed %v err <%v>", msg, err)
-	}
-
-	// Decode with old protocol version.
-	var readmsg MsgFilterClear
-	err = readmsg.BtcDecode(&buf, BIP0031Version, LatestEncoding)
-	if err == nil {
-		t.Errorf("decode of MsgFilterClear succeeded when it "+
-			"shouldn't have %v", msg)
-	}
-}
-
 // TestFilterClearWire tests the MsgFilterClear wire encode and decode for
 // various protocol versions.
 func TestFilterClearWire(t *testing.T) {
@@ -76,24 +55,6 @@ func TestFilterClearWire(t *testing.T) {
 			msgFilterClear,
 			msgFilterClearEncoded,
 			ProtocolVersion,
-			BaseEncoding,
-		},
-
-		// Protocol version BIP0037Version + 1.
-		{
-			msgFilterClear,
-			msgFilterClear,
-			msgFilterClearEncoded,
-			BIP0037Version + 1,
-			BaseEncoding,
-		},
-
-		// Protocol version BIP0037Version.
-		{
-			msgFilterClear,
-			msgFilterClear,
-			msgFilterClearEncoded,
-			BIP0037Version,
 			BaseEncoding,
 		},
 	}
@@ -132,11 +93,9 @@ func TestFilterClearWire(t *testing.T) {
 // TestFilterClearWireErrors performs negative tests against wire encode and
 // decode of MsgFilterClear to confirm error paths work correctly.
 func TestFilterClearWireErrors(t *testing.T) {
-	pverNoFilterClear := BIP0037Version - 1
-	wireErr := &MessageError{}
-
-	baseFilterClear := NewMsgFilterClear()
-	baseFilterClearEncoded := []byte{}
+	//No negative tests after removing the only protocol negative-test
+	//baseFilterClear := NewMsgFilterClear()
+	//baseFilterClearEncoded := []byte{}
 
 	tests := []struct {
 		in       *MsgFilterClear // Value to encode
@@ -147,11 +106,6 @@ func TestFilterClearWireErrors(t *testing.T) {
 		writeErr error           // Expected write error
 		readErr  error           // Expected read error
 	}{
-		// Force error due to unsupported protocol version.
-		{
-			baseFilterClear, baseFilterClearEncoded,
-			pverNoFilterClear, BaseEncoding, 4, wireErr, wireErr,
-		},
 	}
 
 	t.Logf("Running %d tests", len(tests))

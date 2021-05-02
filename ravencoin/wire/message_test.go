@@ -11,7 +11,7 @@ import (
 	"net"
 	"reflect"
 	"testing"
-	"time"
+	//"time"
 
 	"github.com/RavenProject/rosetta-ravencoin/ravencoin/chaincfg/chainhash"
 	"github.com/davecgh/go-spew/spew"
@@ -42,10 +42,8 @@ func TestMessage(t *testing.T) {
 	// MsgVersion.
 	addrYou := &net.TCPAddr{IP: net.ParseIP("192.168.0.1"), Port: 8333}
 	you := NewNetAddress(addrYou, SFNodeNetwork)
-	you.Timestamp = time.Time{} // Version message has zero value timestamp.
 	addrMe := &net.TCPAddr{IP: net.ParseIP("127.0.0.1"), Port: 8333}
 	me := NewNetAddress(addrMe, SFNodeNetwork)
-	me.Timestamp = time.Time{} // Version message has zero value timestamp.
 	msgVersion := NewMsgVersion(me, you, 123123, 0)
 
 	msgVerack := NewMsgVerAck()
@@ -69,13 +67,6 @@ func TestMessage(t *testing.T) {
 	bh := NewBlockHeader(1, &chainhash.Hash{}, &chainhash.Hash{}, 0, 0)
 	msgMerkleBlock := NewMsgMerkleBlock(bh)
 	msgReject := NewMsgReject("block", RejectDuplicate, "duplicate block")
-	msgGetCFilters := NewMsgGetCFilters(GCSFilterRegular, 0, &chainhash.Hash{})
-	msgGetCFHeaders := NewMsgGetCFHeaders(GCSFilterRegular, 0, &chainhash.Hash{})
-	msgGetCFCheckpt := NewMsgGetCFCheckpt(GCSFilterRegular, &chainhash.Hash{})
-	msgCFilter := NewMsgCFilter(GCSFilterRegular, &chainhash.Hash{},
-		[]byte("payload"))
-	msgCFHeaders := NewMsgCFHeaders()
-	msgCFCheckpt := NewMsgCFCheckpt(GCSFilterRegular, &chainhash.Hash{}, 0)
 
 	tests := []struct {
 		in     Message    // Value to encode
@@ -84,7 +75,7 @@ func TestMessage(t *testing.T) {
 		btcnet BitcoinNet // Network to use for wire encoding
 		bytes  int        // Expected num bytes read/written
 	}{
-		{msgVersion, msgVersion, pver, MainNet, 125},
+		{msgVersion, msgVersion, pver, MainNet, 133},
 		{msgVerack, msgVerack, pver, MainNet, 24},
 		{msgGetAddr, msgGetAddr, pver, MainNet, 24},
 		{msgAddr, msgAddr, pver, MainNet, 25},
@@ -105,12 +96,6 @@ func TestMessage(t *testing.T) {
 		{msgFilterLoad, msgFilterLoad, pver, MainNet, 35},
 		{msgMerkleBlock, msgMerkleBlock, pver, MainNet, 110},
 		{msgReject, msgReject, pver, MainNet, 79},
-		{msgGetCFilters, msgGetCFilters, pver, MainNet, 61},
-		{msgGetCFHeaders, msgGetCFHeaders, pver, MainNet, 61},
-		{msgGetCFCheckpt, msgGetCFCheckpt, pver, MainNet, 57},
-		{msgCFilter, msgCFilter, pver, MainNet, 65},
-		{msgCFHeaders, msgCFHeaders, pver, MainNet, 90},
-		{msgCFCheckpt, msgCFCheckpt, pver, MainNet, 58},
 	}
 
 	t.Logf("Running %d tests", len(tests))
