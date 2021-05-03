@@ -14,44 +14,55 @@ import (
 
 const (
 	// ProtocolVersion is the latest protocol version this package supports.
-	ProtocolVersion uint32 = 170002
+	ProtocolVersion uint32 = 70028
 
-	// MultipleAddressVersion is the protocol version which added multiple
-	// addresses per message (pver >= MultipleAddressVersion).
-	MultipleAddressVersion uint32 = 209
-
-	// NetAddressTimeVersion is the protocol version which added the
-	// timestamp field (pver >= NetAddressTimeVersion).
-	NetAddressTimeVersion uint32 = 31402
-
-	// BIP0031Version is the protocol version AFTER which a pong message
-	// and nonce field in ping were added (pver > BIP0031Version).
-	BIP0031Version uint32 = 60000
-
-	// BIP0035Version is the protocol version which added the mempool
-	// message (pver >= BIP0035Version).
-	BIP0035Version uint32 = 60002
-
-	// BIP0037Version is the protocol version which added new connection
-	// bloom filtering related messages and extended the version message
-	// with a relay flag (pver >= BIP0037Version).
-	BIP0037Version uint32 = 70001
-
-	// RejectVersion is the protocol version which added a new reject
-	// message.
-	RejectVersion uint32 = 70002
-
-	// BIP0111Version is the protocol version which added the SFNodeBloom
-	// service flag.
-	BIP0111Version uint32 = 70011
-
-	// SendHeadersVersion is the protocol version which added a new
-	// sendheaders message.
-	SendHeadersVersion uint32 = 70012
-
-	// FeeFilterVersion is the protocol version which added a new
-	// feefilter message.
-	FeeFilterVersion uint32 = 70013
+	//! initial proto version, to be increased after version/verack negotiation
+	INIT_PROTO_VERSION uint32 = 209;
+	
+	//! In this version, 'getheaders' was introduced.
+	GETHEADERS_VERSION uint32 = 31800;
+	
+	//! assetdata network request is allowed for this version
+	ASSETDATA_VERSION uint32 = 70017;
+	
+	//! getassetdata reutrn asstnotfound, and assetdata doesn't have blockhash in the data
+	X16RV2_VERSION uint32 = 70025;
+	
+	//! getassetdata reutrn asstnotfound, and assetdata doesn't have blockhash in the data
+	KAWPOW_VERSION uint32 = 70027;
+	
+	//! disconnect from peers older than this proto version
+	//!!! Anytime this value is changed please also update the "MY_VERSION" value to match in the
+	//!!! ./test/functional/test_framework/mininode.py file. Not doing so will cause verack to fail!
+	MIN_PEER_PROTO_VERSION uint32 = X16RV2_VERSION;
+	
+	//! nTime field added to CAddress, starting with this version;
+	//! if possible, avoid requesting addresses nodes older than this
+	CADDR_TIME_VERSION uint32 = 31402;
+	
+	//! BIP 0031, pong message, is enabled for all versions AFTER this one
+	BIP0031_VERSION uint32 = 60000;
+	
+	//! "filter*" commands are disabled without NODE_BLOOM after and including this version
+	NO_BLOOM_VERSION uint32 = 70011;
+	
+	//! "sendheaders" command and announcing blocks with headers starts with this version
+	SENDHEADERS_VERSION uint32 = 70012;
+	
+	//! "feefilter" tells peers to filter invs to you by fee starts with this version
+	FEEFILTER_VERSION uint32 = 70013;
+	
+	//! short-id-based block download starts with this version
+	SHORT_IDS_BLOCKS_VERSION uint32 = 70014;
+	
+	//! not banning for invalid compact blocks starts with this version
+	INVALID_CB_NO_BAN_VERSION uint32 = 70015;
+	
+	//! getassetdata reutrn asstnotfound, and assetdata doesn't have blockhash in the data
+	ASSETDATA_VERSION_UPDATED uint32 = 70020;
+	
+	//! In this version, 'rip5 (messaging and restricted assets)' was introduced
+	MESSAGING_RESTRICTED_ASSETS_VERSION uint32 = 70026;
 )
 
 // ServiceFlag identifies services supported by a bitcoin peer.

@@ -71,30 +71,6 @@ func TestAddr(t *testing.T) {
 		t.Errorf("AddAddresses: expected error on too many addresses " +
 			"not received")
 	}
-
-	// Ensure max payload is expected value for protocol versions before
-	// timestamp was added to NetAddress.
-	// Num addresses (varInt) + max allowed addresses.
-	pver = NetAddressTimeVersion - 1
-	wantPayload = uint32(26009)
-	maxPayload = msg.MaxPayloadLength(pver)
-	if maxPayload != wantPayload {
-		t.Errorf("MaxPayloadLength: wrong max payload length for "+
-			"protocol version %d - got %v, want %v", pver,
-			maxPayload, wantPayload)
-	}
-
-	// Ensure max payload is expected value for protocol versions before
-	// multiple addresses were allowed.
-	// Num addresses (varInt) + a single net addresses.
-	pver = MultipleAddressVersion - 1
-	wantPayload = uint32(35)
-	maxPayload = msg.MaxPayloadLength(pver)
-	if maxPayload != wantPayload {
-		t.Errorf("MaxPayloadLength: wrong max payload length for "+
-			"protocol version %d - got %v, want %v", pver,
-			maxPayload, wantPayload)
-	}
 }
 
 // TestAddrWire tests the MsgAddr wire encode and decode for various numbers
@@ -162,15 +138,6 @@ func TestAddrWire(t *testing.T) {
 			ProtocolVersion,
 			BaseEncoding,
 		},
-
-		// Protocol version MultipleAddressVersion-1 with no addresses.
-		{
-			noAddr,
-			noAddr,
-			noAddrEncoded,
-			MultipleAddressVersion - 1,
-			BaseEncoding,
-		},
 	}
 
 	t.Logf("Running %d tests", len(tests))
@@ -208,7 +175,7 @@ func TestAddrWire(t *testing.T) {
 // of MsgAddr to confirm error paths work correctly.
 func TestAddrWireErrors(t *testing.T) {
 	pver := ProtocolVersion
-	pverMA := MultipleAddressVersion
+	pverMA := ProtocolVersion - 1
 	wireErr := &MessageError{}
 
 	// A couple of NetAddresses to use for testing.

@@ -51,12 +51,13 @@ const (
 	CmdReject       = "reject"
 	CmdSendHeaders  = "sendheaders"
 	CmdFeeFilter    = "feefilter"
-	CmdGetCFilters  = "getcfilters"
-	CmdGetCFHeaders = "getcfheaders"
-	CmdGetCFCheckpt = "getcfcheckpt"
-	CmdCFilter      = "cfilter"
-	CmdCFHeaders    = "cfheaders"
-	CmdCFCheckpt    = "cfcheckpt"
+	CmdSendCmpct    = "sendcmpct"
+	CmdCmpctBlock   = "cmpctblock";
+	CmdGetBlockTxn  = "getblocktxn";
+	CmdBlockTxn     = "blocktxn";
+	CmdGetAssetData = "getassetdata";
+	CmdAssetData    = "assetdata";
+	CmdAssetNotFound= "asstnotfound";
 )
 
 // MessageEncoding represents the wire message encoding format to be used.
@@ -161,24 +162,28 @@ func makeEmptyMessage(command string) (Message, error) {
 
 	case CmdFeeFilter:
 		msg = &MsgFeeFilter{}
+/*
+	case CmdSendCmpct:
+		msg = &MsgSendCmpct{}
 
-	case CmdGetCFilters:
-		msg = &MsgGetCFilters{}
+	case CmdCmpctBlock:
+		msg = &MsgCmpctBlock{}
 
-	case CmdGetCFHeaders:
-		msg = &MsgGetCFHeaders{}
+	case CmdGetBlockTxn:
+		msg = &MsgGetBlockTxn{}
 
-	case CmdGetCFCheckpt:
-		msg = &MsgGetCFCheckpt{}
+	case CmdBlockTxn:
+		msg = &MsgBlockTxn{}
 
-	case CmdCFilter:
-		msg = &MsgCFilter{}
+	case CmdGetAssetData:
+		msg = &MsgGetAssetData{}
 
-	case CmdCFHeaders:
-		msg = &MsgCFHeaders{}
+	case CmdAssetData:
+		msg = &MsgAssetData{}
 
-	case CmdCFCheckpt:
-		msg = &MsgCFCheckpt{}
+	case CmdAssetNotFound:
+		msg = &MsgAssetNotFound{}
+*/
 
 	default:
 		return nil, fmt.Errorf("unhandled command [%s]", command)
